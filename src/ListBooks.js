@@ -6,7 +6,7 @@ import * as BooksAPI from './BooksAPI'
 
 class ListBooks extends Component {
  static propTypes = {
-   AllBooks: PropTypes.func.isRequired
+   books: PropTypes.func.isRequired
    //onDeleteBook: PropTypes.func.isRequired
  }
 
@@ -15,8 +15,8 @@ class ListBooks extends Component {
   }
 
   componentDidMount() {
-    BooksAPI.getAll().then((AllBooks) => {
-      this.setState({ AllBooks })
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books })
     })
   }
 
@@ -25,7 +25,7 @@ class ListBooks extends Component {
    }
 
    render() {
-    const { AllBooks } = this.props
+    const { books } = this.props
     const { query } = this.state
        return (
         <div className="search-books">
@@ -47,7 +47,7 @@ class ListBooks extends Component {
           </div>
           <div className="search-books-results">
             <ol className="books-grid">
-             {this.props.AllBooks.map((book) => (
+             {this.props.books.map((book) => (
                <li key={book.id} className=''>
                </li>
              ))}

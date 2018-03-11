@@ -1,11 +1,11 @@
 import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
-import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
 import { Link } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import ListBooks from './ListBooks'
+//import escapeRegExp from 'escape-string-regexp'
+//import sortBy from 'sort-by'
 
 
 class BooksApp extends React.Component {
@@ -28,7 +28,7 @@ class BooksApp extends React.Component {
 
 
   render() {
-    const { AllBooks } = this.props;
+    
     return (
       <div className="app">
        <Route exact path='/add' render={() => (

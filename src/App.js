@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import { Link } from 'react-router-dom'
 import { Route } from 'react-router-dom'
-import ListBooks from './ListBooks'
+import Search from './Search'
 import * as BooksAPI from './BooksAPI'
 
 
@@ -34,8 +34,8 @@ class BooksApp extends React.Component {
 
     return (
       <div className="app">
-       <Route exact path='/add' render={() => (
-        <ListBooks
+       <Route exact path='/search' render={() => (
+        <Search
          books={this.state.books}
         />
        )}/>
@@ -197,7 +197,7 @@ class BooksApp extends React.Component {
             </div>
             <div className="open-search">
               <Link
-               to='/add'
+               to='/search'
                onClick={() => this.setState({ showSearchPage: true })}>Add a book</Link>
             </div>
           </div>

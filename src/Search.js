@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import escapeRegExp from 'escape-string-regexp'
 import './App.css'
 
-class ListBooks extends Component {
+class Search extends Component {
  static propTypes = {
    books: PropTypes.array.isRequired
    //onDeleteBook: PropTypes.func.isRequired
@@ -13,6 +13,11 @@ class ListBooks extends Component {
   state = {
     query: ''
   }
+
+ //  if (query === '') {
+ //  this.setState ( query:[])
+ //  return
+ // }
 
   updateQuery = (query) => {
      this.setState({ query: query.trim() })
@@ -26,10 +31,17 @@ class ListBooks extends Component {
     if (query) {
       const match = new RegExp(escapeRegExp(this.state.query), 'i')
       showingBooks = this.props.books.filter((book) => match.test(book.title || book.author))
-    } else {
-      showingBooks = books
+      //noMatch =
     }
-    //console.log(showingBooks)
+    // else if (query) {
+    //
+    //
+    // }
+
+    else {
+      showingBooks = []
+    }
+
 
        return (
         <div className="search-books">
@@ -82,4 +94,4 @@ class ListBooks extends Component {
      }
    }
 
- export default ListBooks
+ export default Search

@@ -42,7 +42,6 @@ class Search extends Component {
       showingBooks = []
     }
 
-
        return (
         <div className="search-books">
           <div className="search-books-bar">
@@ -51,15 +50,13 @@ class Search extends Component {
              className="close-search"
              onClick={() => this.setState({ showSearchPage: false })}>Close</Link>
             <div className="search-books-input-wrapper">
-              {/* {JSON.stringify(this.state)} */}
-               <input
-               type="text"
-               placeholder="Search by title or author"
-               value={this.state.query}
-               onChange={(event) => this.updateQuery(event.target.value)}
-              />
-
-            </div>
+             <input
+             type="text"
+             placeholder="Search by title or author"
+             value={this.state.query}
+             onChange={(event) => this.updateQuery(event.target.value)}
+            />
+           </div>
           </div>
           <div className="search-books-results">
            <div className="bookshelf">

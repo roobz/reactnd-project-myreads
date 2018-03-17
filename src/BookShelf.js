@@ -18,17 +18,24 @@ class BookShelf extends Component {
  componentDidMount() {
      BooksAPI.getAll().then((books) => {
        this.setState({books})
-       //console.log(books[0])
+       console.log(books[0])
      })
    }
 
  render () {
+  // var matchingbooks = logos.filter(function(it,ix,arr) {
+  // return it.book_shelf === book.shelf;
+  // });
+
+  const { books } = this.props
+
   let shelfGroup
-  shelfGroup = this.props.books.filter(book => book.shelf)
+  shelfGroup = this.props.books.filter(book => book.test(book.shelf))
   console.log(shelfGroup)
 
-  const { books, shelf } = this.props
-  //console.log(books)
+  // const shelf = books.shelf
+  // let shelfGroup = books.map(book => shelf == book.shelf )
+  // console.log(shelfGroup)
 
   return (
    <div className="list-books">

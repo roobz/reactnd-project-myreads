@@ -7,21 +7,28 @@ import * as BooksAPI from './BooksAPI'
 
 class BookShelf extends Component {
 
-
  static propTypes = {
    books: PropTypes.array.isRequired
+ }
+
+ state = {
+  books: [],
  }
 
  componentDidMount() {
      BooksAPI.getAll().then((books) => {
        this.setState({books})
-       console.log(books)
+       //console.log(books[0])
      })
    }
 
  render () {
+  let shelfGroup
+  shelfGroup = this.props.books.filter(book => book.shelf)
+  console.log(shelfGroup)
 
-  const { books } = this.props
+  const { books, shelf } = this.props
+  //console.log(books)
 
   return (
    <div className="list-books">
@@ -30,12 +37,12 @@ class BookShelf extends Component {
     </div>
     <div className="list-books-content">
      <div>
-      <div className="bookshelf">
-       <h2 className="bookshelf-title">Currently Reading</h2>
+      {shelfGroup.map((book) => (
+      <div className="bookshelf" key={book.id}>
+       <h2 className="bookshelf-title">{book.shelf}</h2>
         <div className="bookshelf-books">
          <ol className="books-grid">
-          {books.map((book) => (
-          <li key={books.id}>
+          <li key={book.id}>
            <div className="book">
             <div className="book-top">
              <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}>
@@ -51,13 +58,13 @@ class BookShelf extends Component {
              </div>
             </div>
             <div className="book-title">{book.title}</div>
-            <div className="book-authors">{book.author}</div>
+            <div className="book-authors">{book.authors}</div>
            </div>
           </li>
-         ))}
          </ol>
         </div>
        </div>
+      ))}
       </div>
      </div>
     </div>

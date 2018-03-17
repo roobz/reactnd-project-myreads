@@ -14,11 +14,6 @@ class Search extends Component {
     query: ''
   }
 
- //  if (query === '') {
- //  this.setState ( query:[])
- //  return
- // }
-
   updateQuery = (query) => {
      this.setState({ query: query.trim() })
    }
@@ -31,13 +26,7 @@ class Search extends Component {
     if (query) {
       const match = new RegExp(escapeRegExp(this.state.query), 'i')
       showingBooks = this.props.books.filter((book) => match.test(book.title || book.author))
-      //noMatch =
     }
-    // else if (query) {
-    //
-    //
-    // }
-
     else {
       showingBooks = []
     }

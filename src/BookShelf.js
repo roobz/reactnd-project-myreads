@@ -18,7 +18,7 @@ class BookShelf extends Component {
  componentDidMount() {
      BooksAPI.getAll().then((books) => {
        this.setState({books})
-       console.log(books[0])
+       //console.log(books[2])
      })
    }
 
@@ -29,12 +29,11 @@ class BookShelf extends Component {
 
   const { books } = this.props
 
-  let shelfGroup
-  shelfGroup = this.props.books.filter(book => (book.shelf))
+  const catShelf = ["Currently Reading", "Want to Read", "Read"]
+  const shelfGroup = books.map(book => book.shelf === catShelf)
   console.log(shelfGroup)
 
-  // const shelf = books.shelf
-  // let shelfGroup = books.map(book => shelf == book.shelf )
+  //let shelfGroup = books.map(book => {shelf: book.shelf} )
   // console.log(shelfGroup)
 
   return (
@@ -44,7 +43,7 @@ class BookShelf extends Component {
     </div>
     <div className="list-books-content">
      <div>
-      {shelfGroup.map((book) => (
+      {books.map((book) => (
       <div className="bookshelf" key={book.id}>
        <h2 className="bookshelf-title">{book.shelf}</h2>
         <div className="bookshelf-books">

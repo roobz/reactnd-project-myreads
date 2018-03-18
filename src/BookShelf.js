@@ -30,7 +30,7 @@ class BookShelf extends Component {
   const { books } = this.props
 
   let shelfGroup
-  shelfGroup = this.props.books.filter(book => book.test(book.shelf))
+  shelfGroup = this.props.books.filter(book => (book.shelf))
   console.log(shelfGroup)
 
   // const shelf = books.shelf

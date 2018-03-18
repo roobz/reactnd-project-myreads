@@ -36,7 +36,7 @@ class BookShelf extends Component {
   // const catShelf = books.map (shelf => books.shelf)
   // console.log(catShelf)
 
-  const catShelf = books.map (books.shelf)
+  const catShelf = books.map (shelf => books.shelf)
   console.log(catShelf)
 
   // const shelfGroup = books.map(shelf => shelf === catShelf)

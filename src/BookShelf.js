@@ -18,23 +18,30 @@ class BookShelf extends Component {
  componentDidMount() {
      BooksAPI.getAll().then((books) => {
        this.setState({books})
-       //console.log(books[2])
+       //console.log(books)
      })
    }
 
  render () {
-  // var matchingbooks = logos.filter(function(it,ix,arr) {
-  // return it.book_shelf === book.shelf;
+  // var matchingbooks = books.filter(function(it,ix,arr) {
+  // return it.books.shelf === book.shelf;
   // });
 
   const { books } = this.props
 
-  const catShelf = ["Currently Reading", "Want to Read", "Read"]
-  const shelfGroup = books.map(book => book.shelf === catShelf)
-  console.log(shelfGroup)
+  // let CurrentlyReading
+  // let WanttoRead
+  // let Read
 
-  //let shelfGroup = books.map(book => {shelf: book.shelf} )
+  // const catShelf = books.map (shelf => books.shelf)
+  // console.log(catShelf)
+
+  const catShelf = books.map (books.shelf)
+  console.log(catShelf)
+
+  // const shelfGroup = books.map(shelf => shelf === catShelf)
   // console.log(shelfGroup)
+
 
   return (
    <div className="list-books">

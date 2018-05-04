@@ -9,6 +9,10 @@ render () {
  const { books } = this.props
  const { book } = this.props
 
+ console.log("this.props is" + this.props)
+ console.log("this.props.books is" + this.props.books)
+
+
 
 return (
 

@@ -24,7 +24,7 @@ class BookShelves extends Component {
 
   console.log("this.props is" + this.props)
   console.log("this.props.books is" + this.props.books)
-  console.log (books)
+  console.log (this.props.books)
 
 
   // const shelfGroup = books.map(shelf => shelf === catShelf)

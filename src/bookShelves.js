@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './App.css'
-import Shelf from './shelf'
+import Shelf from './shelf.js'
+// import * as BooksAPI from './BooksAPI'
+
+
 
 class BookShelves extends Component {
 
  static propTypes = {
    books: PropTypes.array.isRequired
  }
-
- // state = {
- //  books: [],
- // }
 
 
  render () {
@@ -20,11 +19,12 @@ class BookShelves extends Component {
   // });
 
   const { books } = this.props
-  const { book } = this.props
+  // const { book } = this.props
 
-  console.log("this.props is" + this.props)
-  console.log("this.props.books is" + this.props.books)
-  console.log (this.props.books)
+  // console.log("this.props is" + this.props)
+  // console.log("this.props.books is" + this.props.books)
+  // console.log (this.props.books)
+  // console.log (books)
 
 
   // const shelfGroup = books.map(shelf => shelf === catShelf)

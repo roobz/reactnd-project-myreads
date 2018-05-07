@@ -11,6 +11,8 @@ render () {
 
  // console.log("this.props is" + this.props)
  // console.log("this.props.books is" + this.props.books)
+ // console.log (this.props.books)
+ // console.log (books)
 
 
 

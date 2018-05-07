@@ -14,12 +14,20 @@ class BooksApp extends React.Component {
     showSearchPage: false
   }
 
-  componentDidMount() {
+  // componentDidMount() {
+  //     BooksAPI.getAll().then((books) => {
+  //       this.setState({ books })
+  //     })
+  //   }
+
+    componentDidMount() {
       BooksAPI.getAll().then((books) => {
         this.setState({ books })
-        //console.log(books)
+        console.log(books)
       })
     }
+
+
 
   render() {
     return (

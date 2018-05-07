@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types'
 // import * as BooksAPI from './BooksAPI'
-import Book from './book'
+import Book from './book.js'
 
 class Shelf extends Component {
   // static propTypes = {
@@ -12,6 +12,12 @@ class Shelf extends Component {
 
    const { books } = this.props.books
    const { book } = this.props
+
+   // console.log("this.props is" + this.props)
+   // console.log("this.props.books is" + this.props.books)
+   // console.log (this.props.books)
+
+
 
 
 

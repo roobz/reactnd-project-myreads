@@ -3,7 +3,12 @@ import React, { Component } from 'react'
 // import * as BooksAPI from './BooksAPI'
 
 class Book extends Component {
-
+ constructor (book, shelf) {
+         super(book, shelf)
+         this.state = {
+             shelf: book.shelf
+         }
+     }
 
 render () {
  const { books } = this.props

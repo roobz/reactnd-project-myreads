@@ -13,6 +13,7 @@ ReactDOM.render(<BrowserRouter><BooksApp /></BrowserRouter>,
 
  render () {
   return (
+   <div className="app">
    <Route exact path='/search' render={() => (
     <Search
      books={this.state.books}
@@ -23,6 +24,7 @@ ReactDOM.render(<BrowserRouter><BooksApp /></BrowserRouter>,
        books={this.state.books}
       />
     )}/>
+   </div>
   )
  }
 

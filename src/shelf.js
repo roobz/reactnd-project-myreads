@@ -13,8 +13,7 @@ class Shelf extends Component {
    const { books } = this.props.books
    const { book } = this.props
 
-   // console.log("this.props is" + this.props)
-   // console.log("this.props.books is" + this.props.books)
+
    // console.log (this.props.books)
 
 
@@ -41,6 +40,12 @@ class Shelf extends Component {
           <li key={book.id}>
          <Book
           book={CurrentlyReading}
+         />
+         <Book
+          book={WanttoRead}
+         />
+         <Book
+          book={Read}
          />
         </li>
         ))}

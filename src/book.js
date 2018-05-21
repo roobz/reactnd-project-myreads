@@ -1,21 +1,43 @@
 import React, { Component } from 'react'
 //import PropTypes from 'prop-types'
-// import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './BooksAPI'
 
 class Book extends Component {
- constructor (book, shelf) {
-         super(book, shelf)
-         this.state = {
-             shelf: book.shelf
-         }
-     }
+ constructor(props) {
+   super(props);
+   this.handleChange = this.handleChange.bind(this);
+ }
+
+ handleChange(event) {
+     this.setState({value: event.target.value});
+   }
+
+ handleChange(event) {
+  this.props.changeShelf(this.props.book, event.target.value);
+  BooksAPI.update(this.props.book, event.target.value);
+}
+
+mapShelf(foundBook) {
+    const defaultShelf = "none";
+    if (foundBook.shelf) {
+      return foundBook.shelf;
+    } else {
+      const match = this.props.shelvedBooks.filter(
+        book => book.id === foundBook.id
+      );
+      if (!Array.isArray(match) || !match.length) {
+        return defaultShelf;
+      } else {
+        return match[0].shelf;
+      }
+    }
+  }
+
 
 render () {
  const { books } = this.props
  const { book } = this.props
 
- // console.log("this.props is" + this.props)
- // console.log("this.props.books is" + this.props.books)
  // console.log (this.props.books)
  // console.log (books)
 
@@ -29,7 +51,7 @@ return (
    <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}>
    </div>
    <div className="book-shelf-changer">
-    <select>
+    <select defaultValue={this.mapShelf(book)} onChange={this.handleChange}>
      <option value="none" disabled>Move to...</option>
      <option value="currentlyReading">Currently Reading</option>
      <option value="wantToRead">Want to Read</option>

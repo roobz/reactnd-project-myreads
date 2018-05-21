@@ -20,14 +20,19 @@ class BooksApp extends React.Component {
   //     })
   //   }
 
-    componentDidMount() {
+    componentWillMount() {
       BooksAPI.getAll().then((books) => {
         this.setState({ books })
-        console.log(books)
+        console.log(this.state.books)
       })
     }
 
-
+   changeShelf = (bookToAdd, shelf) => {
+      this.setState(state => {
+            const nextState = state.shelvedBooks.filter(book => book.id !== bookToAdd.id).concat( [{...bookToAdd, shelf}] );
+            return { shelvedBooks: nextState };
+          });
+        }
 
   render() {
     return (

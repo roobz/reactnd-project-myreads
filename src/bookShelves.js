@@ -18,11 +18,8 @@ class BookShelves extends Component {
   // return it.books.shelf === book.shelf;
   // });
 
-  const { books } = this.props
-  // const { book } = this.props
-
-  // console.log("this.props is" + this.props)
-  // console.log("this.props.books is" + this.props.books)
+  const books  = this.props.books.shelf
+  const book  = this.props
   // console.log (this.props.books)
   // console.log (books)
 
